@@ -35,14 +35,14 @@ PUROBook é uma rede social exclusiva para estudantes da Universidade Federal Fl
     *   Crie um banco de dados MySQL para o PUROBook.
     *   Importe o script SQL para criar as tabelas necessárias.
 3.  **Configuração:**
-    *   Edite o arquivo de configuração do banco de dados (geralmente em `config/`) e insira as informações de conexão com o banco de dados MySQL.
-        *   Exemplo:
+    *   Edite o arquivo de configuração do banco de dados (em `config/`) e insira as informações de conexão com o banco de dados MySQL.
+        
             ```php
             <?php
             $host = 'localhost';
             $usuario = 'root';
             $senha = '';
-            $banco = 'purobook';
+            $banco = 'blog_db';
             ?>
             ```
 
