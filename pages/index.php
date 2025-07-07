@@ -19,10 +19,6 @@ if (!isset($_SESSION['usuario_id'])) {
         <div style="font-weight: bold; font-size: 1.5rem;">
             PUROBook
         </div>
-        <div>
-            <a href="register.php" style="color: white; margin-right: 1rem; text-decoration: none; padding: 0.5rem 1rem; border: 1px solid white; border-radius: 4px;">Cadastrar</a>
-            <a href="login.php" style="color: white; text-decoration: none; padding: 0.5rem 1rem; background: white; color: #7c3aed; border-radius: 4px;">Login</a>
-        </div>
     </nav>
 
     <!-- Landing Page Section -->
@@ -66,7 +62,14 @@ include '../includes/header.php';
             <?php else: ?>
                 <?php foreach ($posts as $post): ?>
                     <div class="post">
-                        <h3><a href="post.php?id=<?php echo $post['id']; ?>"><?php echo htmlspecialchars($post['titulo']); ?></a></h3>
+                        <h3 style="display: flex; align-items: center; justify-content: space-between;">
+                            <a href="post.php?id=<?php echo $post['id']; ?>"><?php echo htmlspecialchars($post['titulo']); ?></a>
+                            <?php if (isset($_SESSION['usuario_id']) && $_SESSION['usuario_id'] == $post['id_usuario']): ?>
+                                <button class="delete-btn" title="Deletar post" onclick="confirmDeletePost(<?php echo $post['id']; ?>)">
+                                    🗑️
+                                </button>
+                            <?php endif; ?>
+                        </h3>
                         <div class="post-meta">
                             Por <?php echo htmlspecialchars($post['autor_nome']); ?> em <?php echo date('d/m/Y H:i', strtotime($post['data_criacao'])); ?>
                         </div>
@@ -78,5 +81,35 @@ include '../includes/header.php';
         </div>
     </div>
 </div>
+
+<!-- Modal de confirmação -->
+<div id="confirmModal" class="modal" style="display:none;">
+    <div class="modal-content">
+        <p id="modalText">Tem certeza que deseja deletar?</p>
+        <button id="confirmYes">Sim</button>
+        <button id="confirmNo">Não</button>
+    </div>
+</div>
+
+<script>
+    let deleteType = '';
+    let deleteId = '';
+
+    function confirmDeletePost(postId) {
+        deleteType = 'post';
+        deleteId = postId;
+        document.getElementById('modalText').innerText = 'Tem certeza que deseja deletar este post?';
+        document.getElementById('confirmModal').style.display = 'flex';
+    }
+
+    document.getElementById('confirmYes').onclick = function() {
+        if (deleteType === 'post') {
+            window.location = 'delete_post.php?id=' + deleteId;
+        }
+    };
+    document.getElementById('confirmNo').onclick = function() {
+        document.getElementById('confirmModal').style.display = 'none';
+    };
+</script>
 </body>
 </html>
