@@ -12,6 +12,7 @@ PUROBook é uma rede social exclusiva para estudantes da Universidade Federal Fl
 *   **Comentários:** Usuários podem comentar em posts de outros usuários, promovendo discussões e interação.
 *   **Foto de Perfil:** Usuários podem adicionar uma foto de perfil para personalizar sua conta.
 *   **Seleção de Curso:** Usuários podem selecionar o curso que estão cursando na UFF, facilitando a conexão com colegas da mesma área.
+*   **Deletar Post e Comentários:** Usuários podem excluir seus próprios posts e seus comentários nos posts de outras pessoas.
 
 ## Tecnologias Utilizadas
 
@@ -69,7 +70,8 @@ PUROBook é uma rede social exclusiva para estudantes da Universidade Federal Fl
 7.  **Selecionar Curso:**
     *   Na página de perfil, selecione o seu curso na lista de opções.
     *   Clique em "Salvar".
-
+8.  **Excluir Post/Comentário:**
+    *   Por fim, caso deseje, o usuário pode excluir seus posts e comentários que foram feitos anteriormente.
 ## Informações Adicionais
 
 *   **Projeto da Disciplina de Desenvolvimento Web:** Este projeto foi desenvolvido para a disciplina de Desenvolvimento Web na Universidade Federal Fluminense (UFF) e ainda está em desenvolvimento.
